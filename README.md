@@ -1,1 +1,3 @@
-# ramuproject
+# maven-project
+
+Simple Maven Project
