@@ -10,8 +10,26 @@ pipeline{
         stage ("Maven Build"){
             steps{
                 sh "mvn clean install package"
+                sh "mv target/*.war  target/myweb.war"
             }
         }
-          
+        
+        stage ("deploy"){
+            sshagent(['tomcat']) {
+                
+               sh"""
+               
+               scp -o StrictHostKeyCheckingno  target/myweb.war  centos@172.31.5.94:/usr/local/tomcat/webapps/
+               
+               ssh  centos@172.31.5.94:/usr/local/tomcat/bin/shutdown.sh
+               
+               ssh  centos@172.31.5.94:/usr/local/tomcat/bin/startup.sh
+               
+               """
+            }
+            
+                
+        }
     }
+          
 }
