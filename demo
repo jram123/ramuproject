@@ -15,6 +15,7 @@ pipeline{
         }
         
         stage ("deploy"){
+            
             sshagent(['tomcat']) {
                 
                sh"""
@@ -28,7 +29,6 @@ pipeline{
                """
             }
             
-                
         }
     }
           
