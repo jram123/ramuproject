@@ -1,0 +1,17 @@
+pipeline{
+    agent any
+    stages{
+        stage ("Git Checkout"){
+            steps{
+                git credentialsId: 'github', url: 'https://github.com/jram123/ramuproject.git'
+            }
+        }
+        
+        stage ("Maven Build"){
+            steps{
+                sh "mvn clean install package"
+            }
+        }
+          
+    }
+}
