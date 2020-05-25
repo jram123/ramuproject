@@ -21,9 +21,9 @@ pipeline{
                
                scp -o StrictHostKeyCheckingno  target/webapp.war  centos@172.31.5.94:/usr/local/tomcat/webapps/
                
-               ssh  centos@172.31.5.94:/usr/local/tomcat/bin/shutdown.sh
+               ssh  centos@172.31.5.94  /usr/local/tomcat/bin/shutdown.sh
                
-               ssh  centos@172.31.5.94:/usr/local/tomcat/bin/startup.sh
+               ssh  centos@172.31.5.94  /usr/local/tomcat/bin/startup.sh
                
                """
             }
