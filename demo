@@ -19,7 +19,7 @@ pipeline{
                 
                sh"""
                
-               scp -o StrictHostKeyChecking=no target/webapp.war    centos@172.31.5.94:/usr/local/tomcat/webapps/
+               scp -o StrictHostKeyChecking=no  **/target/*.war    centos@172.31.5.94:/usr/local/tomcat/webapps/
                
                ssh  centos@172.31.5.94  /usr/local/tomcat/bin/shutdown.sh
                
